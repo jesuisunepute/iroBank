@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Futuriste</title>
+    <!-- Inclure SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #3498db;
+            color: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-container {
+            background-color: #2c3e50;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+
+        .signup-container h2 {
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ecf0f1;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            color: #2c3e50;
+        }
+
+        .form-group button {
+            background-color: #3498db;
+            color: #2c3e50;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Créer un compte</h2>
+        <form onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="fullname">Nom complet</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Adresse e-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <!-- Champs pour les informations de compte bancaire -->
+            <div class="form-group">
+                <label for="accountNumber">Numéro de compte bancaire</label>
+                <input type="text" id="accountNumber" name="accountNumber" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bankName">Nom de la banque</label>
+                <input type="text" id="bankName" name="bankName" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Créer un compte</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Ajoutez ici la logique de validation et de création de compte côté serveur
+            // Pour l'exemple, nous utiliserons SweetAlert2 pour afficher une alerte stylisée
+            Swal.fire({
+                icon: 'success',
+                title: 'Compte créé avec succès !',
+                text: 'Vous pouvez maintenant vous connecter.',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                // Redirigez l'utilisateur vers la page de connexion après la création du compte
+                window.location.href = 'index.html'; // Remplacez 'page_connexion.html' par le chemin de votre page de connexion
+            });
+
+            return false; // Temporaire pour éviter la soumission du formulaire
+        }
+    </script>
+</body>
+</html>
